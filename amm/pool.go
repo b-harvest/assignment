@@ -70,7 +70,10 @@ func (pool *Pool) Deposit(x, y sdk.Int) (ax, ay, pc sdk.Int) {
 
 // Withdraw returns withdrawn x and y coin amount when someone withdraws
 // pc pool coin.
-// Withdraw also takes care of the fee rate.
+// Withdraw also takes care of the fee rate. 
+// The fee amount according to feeRate out of Withdrawn amount remains in the pool.
+// The remaining amount is returned to the withdrawer.
+// There is no fee for the last withdrawal.
 func (pool *Pool) Withdraw(pc sdk.Int, feeRate sdk.Dec) (x, y sdk.Int) {
 	// TODO: implement calculating logic for x, y =======================
 	// ..
