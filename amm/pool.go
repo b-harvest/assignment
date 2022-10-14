@@ -52,6 +52,8 @@ func (pool *Pool) IsDepleted() bool {
 
 // Deposit returns accepted x and y coin amount and minted pool coin amount
 // when someone deposits x and y coins.
+// Deposit also takes care of the case that the ratio of x and y coins is not 
+// equal to the ratio of the pool reserves of Rx and Ry.
 func (pool *Pool) Deposit(x, y sdk.Int) (ax, ay, pc sdk.Int) {
 	// Calculate accepted amount and minting amount.
 	// Note that we take as many coins as possible(by ceiling numbers)
